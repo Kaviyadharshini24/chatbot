@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import WelcomeForm from './components/WelcomeForm';
+import ChatInterface from './components/ChatInterface';
 
 import type { CustomerDetails } from './types';
 
@@ -12,6 +13,9 @@ const App: React.FC = () => {
     console.log("Customer Registered:", details);
   };
 
+  const handleLogout = () => {
+    setCustomer(null);
+  };
  
 
   return (
@@ -19,7 +23,7 @@ const App: React.FC = () => {
       {!customer ? (
         <WelcomeForm onSubmit={handleFormSubmit} />
       ) : (
-        // <ChatInterface customer={customer} onLogout={handleLogout} />
+        <ChatInterface customer={customer} onLogout={handleLogout} />
       )}
     </div>
   );
